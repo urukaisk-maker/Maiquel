@@ -122,6 +122,34 @@ docker compose up --build -d
 docker compose down
 ```
 
+## Calidad de codigo (Sprint 1)
+
+El proyecto incluye estandares de lint y formato para backend y frontend.
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm run lint
+npm run format:check
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run lint
+npm run format:check
+```
+
+### Script unificado por modulo
+
+En ambos modulos existe:
+
+- `npm run check` -> ejecuta lint + validacion de formato
+
 ## Arquitectura por Capas
 
 ### 1) Frontend (Presentacion)

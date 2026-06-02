@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  backend-check:
-    name: Verificacion Backend
+  backend-calidad:
+    name: Calidad Backend
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -27,18 +27,34 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Verificar arranque del backend
-        run: node --check src/server.js
+      - name: Lint backend
+        run: npm run lint
 
-  frontend-check:
-    name: Verificacion Frontend
+      - name: Formato backend
+        run: npm run format:check
+
+  frontend-calidad:
+    name: Calidad Frontend
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verificar archivos base del frontend
-        run: |
-          test -f frontend/index.html
-          test -f frontend/css/main.css
-          test -f frontend/js/main.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Lint frontend
+        run: npm run lint
+
+      - name: Formato frontend
+        run: npm run format:check

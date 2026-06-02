@@ -19,10 +19,10 @@ Dejar una base consistente para desarrollar con velocidad y menos errores.
 
 ### Tareas
 
-- [ ] Configurar ESLint en frontend y backend
-- [ ] Configurar Prettier con reglas compartidas
-- [ ] Agregar scripts de calidad en `package.json` (`lint`, `format`, `check`)
-- [ ] Validar flujo local y en CI
+- [x] Configurar ESLint en frontend y backend
+- [x] Configurar Prettier con reglas compartidas
+- [x] Agregar scripts de calidad en `package.json` (`lint`, `format`, `check`)
+- [x] Validar flujo en CI (local pendiente de entorno con npm)
 
 ### Entregables
 
