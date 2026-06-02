@@ -17,6 +17,7 @@ Interfaz moderna, responsive y totalmente en espanol.
 
 - Node.js 18 o superior
 - npm 9 o superior
+- Docker Desktop (opcional, recomendado para despliegue local)
 
 ## Estructura del Proyecto
 
@@ -95,6 +96,31 @@ La API quedara en: `http://localhost:3000`
 `frontend/index.html`
 
 > Importante: el frontend espera la API en `http://localhost:3000/api`.
+
+## Ejecucion con Docker (nivel produccion local)
+
+1. Crear el archivo de entorno del backend:
+
+```powershell
+Copy-Item backend/.env.example backend/.env
+```
+
+2. Levantar todos los servicios:
+
+```bash
+docker compose up --build -d
+```
+
+3. Acceder a la aplicacion:
+
+- Frontend: `http://localhost:8080`
+- Backend (salud): `http://localhost:3000/api/salud`
+
+4. Detener servicios:
+
+```bash
+docker compose down
+```
 
 ## Arquitectura por Capas
 
@@ -213,6 +239,7 @@ Controles recomendados:
 - Validacion de entradas con `Zod`
 - `Helmet` para cabeceras de seguridad
 - CORS restringido por entorno
+- Rate limiting configurable por variables de entorno
 - Sanitizacion basica en renderizado frontend (escape de HTML)
 
 ## Funcionalidades Incluidas
@@ -228,6 +255,7 @@ Controles recomendados:
 - Roadmap de evolucion: `ROADMAP.md`
 - Integracion continua: `.github/workflows/ci.yml`
 - Plantillas de incidencias: `.github/ISSUE_TEMPLATE/`
+- Contenedores: `docker-compose.yml`, `backend/Dockerfile`, `frontend/Dockerfile`
 
 ## Nota de Responsabilidad Tecnica
 

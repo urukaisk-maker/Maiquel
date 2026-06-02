@@ -5,5 +5,7 @@ dotenv.config();
 export const env = {
   port: Number(process.env.PORT ?? 3000),
   jwtSecret: process.env.JWT_SECRET ?? "cambia-este-secreto",
-  corsOrigin: process.env.CORS_ORIGIN ?? "http://127.0.0.1:5500"
+  corsOrigin: process.env.CORS_ORIGIN ?? "http://127.0.0.1:5500",
+  rateLimitWindowMs: Number(process.env.RATE_LIMIT_WINDOW_MS ?? 15 * 60 * 1000),
+  rateLimitMax: Number(process.env.RATE_LIMIT_MAX ?? 100)
 };

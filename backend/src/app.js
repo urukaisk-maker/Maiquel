@@ -6,6 +6,7 @@ import { env } from "./config/env.js";
 import { authRoutes } from "./routes/auth.routes.js";
 import { taskRoutes } from "./routes/task.routes.js";
 import { errorHandler, notFoundHandler } from "./middleware/error.middleware.js";
+import { apiRateLimit } from "./middleware/security.middleware.js";
 
 export function createApp() {
   const app = express();
@@ -18,6 +19,7 @@ export function createApp() {
   );
   app.use(morgan("dev"));
   app.use(express.json());
+  app.use(apiRateLimit);
 
   app.get("/api/salud", (req, res) => {
     res.status(200).json({ ok: true, mensaje: "API funcionando correctamente." });

@@ -20,8 +20,8 @@ Este roadmap define una evolucion incremental y realista del proyecto.
 
 ## Fase 3 - Infraestructura y despliegue
 
-- [ ] Dockerfile para backend
-- [ ] Docker Compose para entorno local completo
+- [x] Dockerfile para backend
+- [x] Docker Compose para entorno local completo
 - [ ] Despliegue de frontend en CDN/hosting estatico
 - [ ] Despliegue de backend en entorno cloud
 - [ ] Variables seguras y secretos por entorno
