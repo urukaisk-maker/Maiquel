@@ -1,60 +1,157 @@
-# Roadmap del Proyecto Maiquel
+# Roadmap del Proyecto Maiquel (Sprints)
 
-Este roadmap define una evolucion incremental y realista del proyecto.
+Este roadmap transforma las fases en un plan ejecutable por sprints, con enfoque en entrega incremental y calidad continua.
 
-## Fase 1 - Base estable (actual)
+## Estado actual (completado)
 
-- [x] Estructura inicial frontend y backend
-- [x] API REST con autenticacion JWT
+- [x] Estructura base frontend y backend
+- [x] Autenticacion JWT (registro/login)
 - [x] CRUD de tareas por usuario
-- [x] Interfaz moderna y responsive en espanol
-- [x] Documentacion base
+- [x] UI moderna y responsive en espanol
+- [x] CI inicial y organizacion del repositorio
+- [x] Docker y docker-compose para entorno local
 
-## Fase 2 - Calidad de desarrollo
+## Sprint 1 - Calidad de codigo y estandares
 
-- [ ] ESLint y Prettier para frontend y backend
-- [ ] Tests unitarios backend (Jest)
-- [ ] Tests frontend (Vitest)
-- [ ] Pruebas E2E (Cypress o Playwright)
-- [ ] Cobertura de pruebas minima del 70%
+### Objetivo
 
-## Fase 3 - Infraestructura y despliegue
+Dejar una base consistente para desarrollar con velocidad y menos errores.
 
-- [x] Dockerfile para backend
-- [x] Docker Compose para entorno local completo
-- [ ] Despliegue de frontend en CDN/hosting estatico
-- [ ] Despliegue de backend en entorno cloud
-- [ ] Variables seguras y secretos por entorno
+### Tareas
 
-## Fase 4 - Datos y escalabilidad
+- [ ] Configurar ESLint en frontend y backend
+- [ ] Configurar Prettier con reglas compartidas
+- [ ] Agregar scripts de calidad en `package.json` (`lint`, `format`, `check`)
+- [ ] Validar flujo local y en CI
 
-- [ ] Migrar persistencia JSON a PostgreSQL
-- [ ] Integrar ORM (Prisma o TypeORM)
-- [ ] Migraciones y seeds automatizadas
-- [ ] Paginacion y filtros avanzados de tareas
-- [ ] Cache de consultas frecuentes
+### Entregables
 
-## Fase 5 - Producto y experiencia
+- Configuracion de lint/formato versionada
+- Comandos de calidad documentados en `README.md`
 
-- [ ] Busqueda y etiquetas en tareas
-- [ ] Vista calendario y recordatorios
-- [ ] Notificaciones en tiempo real
+### Criterio de cierre
+
+- Todo el proyecto pasa lint sin errores
+- Los cambios nuevos siguen formato automatico
+
+## Sprint 2 - Testing tecnico
+
+### Objetivo
+
+Aumentar la confianza en cambios futuros con pruebas automatizadas.
+
+### Tareas
+
+- [ ] Tests unitarios backend con Jest
+- [ ] Tests frontend con Vitest
+- [ ] Prueba E2E critica (login + CRUD basico) con Playwright o Cypress
+- [ ] Incorporar cobertura minima del 70%
+
+### Entregables
+
+- Suite de pruebas automatizada
+- Reporte de cobertura en CI
+
+### Criterio de cierre
+
+- CI ejecuta tests en cada push/PR
+- Cobertura igual o superior al umbral definido
+
+## Sprint 3 - Despliegue real
+
+### Objetivo
+
+Publicar la aplicacion en un entorno accesible y estable.
+
+### Tareas
+
+- [ ] Desplegar frontend en hosting estatico/CDN
+- [ ] Desplegar backend en servicio cloud
+- [ ] Gestionar variables de entorno por ambiente
+- [ ] Configurar dominio y HTTPS
+
+### Entregables
+
+- URL publica de frontend y API
+- Documento corto de despliegue y rollback
+
+### Criterio de cierre
+
+- Aplicacion accesible en entorno productivo
+- Flujo de login y tareas funcionando en produccion
+
+## Sprint 4 - Datos y escalabilidad
+
+### Objetivo
+
+Reemplazar persistencia JSON por una base de datos robusta.
+
+### Tareas
+
+- [ ] Migrar a PostgreSQL
+- [ ] Integrar ORM (Prisma recomendado)
+- [ ] Crear migraciones y seeds
+- [ ] Agregar paginacion y filtros en listados
+
+### Entregables
+
+- Esquema de datos versionado
+- API operando con base de datos relacional
+
+### Criterio de cierre
+
+- Datos persistentes en PostgreSQL
+- Rendimiento aceptable en listados con paginacion
+
+## Sprint 5 - Producto y experiencia
+
+### Objetivo
+
+Subir el valor para usuario final con funciones de productividad.
+
+### Tareas
+
+- [ ] Busqueda por texto y filtros por estado/prioridad
+- [ ] Etiquetas/categorias en tareas
 - [ ] Perfil de usuario editable
-- [ ] Modo oscuro/claro configurable
+- [ ] Vista de calendario y recordatorios
 
-## Fase 6 - Seguridad avanzada
+### Entregables
 
-- [ ] Rate limiting por IP y usuario
-- [ ] Auditoria de accesos y cambios criticos
-- [ ] Politica de contrasenas robusta
-- [ ] Rotacion de secretos y hardening adicional
+- Nuevas vistas y componentes UX
+- Historias de usuario cerradas con demo funcional
+
+### Criterio de cierre
+
+- Usuario puede organizar y consultar tareas con mayor eficiencia
+
+## Sprint 6 - Seguridad avanzada y observabilidad
+
+### Objetivo
+
+Fortalecer seguridad operativa y monitoreo del sistema.
+
+### Tareas
+
+- [ ] Endurecer autenticacion (politica de contrasenas y expiracion)
+- [ ] Auditoria basica de acciones criticas
 - [ ] Escaneo de dependencias y SAST en CI
+- [ ] Logging estructurado y alertas de errores
 
-## Criterio de priorizacion
+### Entregables
 
-Cada nueva funcionalidad deberia evaluarse por:
+- Pipeline de seguridad activo
+- Base de observabilidad para incidentes
 
-1. Impacto directo en usuarios
+### Criterio de cierre
+
+- Riesgo de seguridad reducido y eventos criticos trazables
+
+## Priorizacion de backlog
+
+Cada nueva tarea deberia evaluarse por:
+
+1. Impacto en usuario
 2. Riesgo tecnico
-3. Tiempo de implementacion
-4. Complejidad de mantenimiento
+3. Esfuerzo/tiempo
+4. Costo de mantenimiento

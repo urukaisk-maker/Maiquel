@@ -257,6 +257,99 @@ Controles recomendados:
 - Plantillas de incidencias: `.github/ISSUE_TEMPLATE/`
 - Contenedores: `docker-compose.yml`, `backend/Dockerfile`, `frontend/Dockerfile`
 
+## Resumen Ejecutivo
+
+La aplicacion se inicia desde un unico `index.html`.
+El frontend, desarrollado con `HTML`, `CSS` y `JavaScript`, gestiona la experiencia interactiva del usuario.
+El backend expone una API (`REST` o `GraphQL`) encargada de la logica de negocio y del acceso a la base de datos.
+La comunicacion entre capas se realiza de forma asincrona mediante `JSON`, garantizando una arquitectura modular, segura y preparada para produccion.
+
+## Siguiente Paso Funcional
+
+Tras definir la arquitectura, el siguiente paso es concretar el alcance funcional del producto con una hoja clara:
+
+### 1) Casos de Uso e Historias de Usuario
+
+Definir perfiles y acciones principales:
+
+- Usuario invitado: ver pantalla de acceso y registrarse.
+- Usuario registrado: iniciar sesion, gestionar sus tareas y actualizar su perfil.
+- Administrador (opcional): ver usuarios y aplicar acciones de supervision.
+
+Casos iniciales recomendados para Maiquel:
+
+- Registrar usuario
+- Iniciar sesion
+- Crear tarea
+- Marcar tarea como completada/pendiente
+- Editar tarea
+- Eliminar tarea
+- Filtrar tareas por estado/prioridad
+
+### 2) Modelo de Datos (Conceptual)
+
+Entidades sugeridas:
+
+- `usuarios`: id, nombre, email, password_hash, rol, fecha_registro
+- `tareas`: id, titulo, descripcion, estado, prioridad, fecha_creacion, fecha_vencimiento, id_usuario
+- `categorias` (opcional): id, nombre, color
+
+Relaciones y restricciones:
+
+- Un usuario tiene muchas tareas
+- Una tarea pertenece a un usuario
+- Una tarea puede pertenecer a una categoria (opcional)
+- `email` unico por usuario
+- Claves foraneas e indices sobre campos de busqueda frecuentes
+
+### 3) Contrato de API
+
+Endpoints base:
+
+- `POST /api/auth/registro` -> crear cuenta
+- `POST /api/auth/login` -> devolver JWT
+- `GET /api/tareas` -> listar tareas del usuario autenticado (idealmente paginado)
+- `POST /api/tareas` -> crear tarea
+- `PUT /api/tareas/:id` -> actualizar tarea
+- `DELETE /api/tareas/:id` -> eliminar tarea
+
+Administracion (opcional):
+
+- `GET /api/admin/usuarios`
+
+### 4) Vistas y Flujo del Frontend
+
+Pantallas objetivo:
+
+- Login / registro
+- Dashboard con listado, filtros y acciones rapidas
+- Formulario de crear/editar tarea
+- Perfil de usuario
+- Panel de administracion (si hay roles)
+
+Interacciones clave:
+
+- Al crear tarea, actualizar listado sin recargar
+- Mensajes de error/exito claros para toda accion
+- Navegacion SPA entre vistas
+
+### 5) Plan de Desarrollo por Fases
+
+- Fase 0: base del proyecto y convenciones
+- Fase 1: autenticacion JWT (registro/login)
+- Fase 2: CRUD de tareas + reglas de propietario
+- Fase 3: frontend de acceso y consumo de API
+- Fase 4: dashboard y CRUD dinamico
+- Fase 5: pruebas, seguridad y responsive
+- Fase 6: despliegue en staging y luego produccion
+
+### 6) Herramientas Complementarias
+
+- Variables de entorno en `.env`
+- Documentacion de API con OpenAPI/Swagger (recomendado)
+- Logging de peticiones y errores
+- Manejo global de errores en backend y frontend
+
 ## Nota de Responsabilidad Tecnica
 
 La arquitectura y su implementacion han sido concebidas por Urukais Klick (diseno tecnico general, frontend y backend), junto con Manuel Casimiro Carrasco (desarrollo, integracion y optimizacion), garantizando modularidad, mantenibilidad y escalabilidad del sistema.
