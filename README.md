@@ -133,6 +133,7 @@ cd backend
 npm install
 npm run lint
 npm run format:check
+npm run test
 ```
 
 ### Frontend
@@ -142,13 +143,14 @@ cd frontend
 npm install
 npm run lint
 npm run format:check
+npm run test
 ```
 
 ### Script unificado por modulo
 
 En ambos modulos existe:
 
-- `npm run check` -> ejecuta lint + validacion de formato
+- `npm run check` -> ejecuta lint + validacion de formato + tests
 
 ## Arquitectura por Capas
 

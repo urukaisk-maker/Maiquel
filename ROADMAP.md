@@ -42,8 +42,8 @@ Aumentar la confianza en cambios futuros con pruebas automatizadas.
 
 ### Tareas
 
-- [ ] Tests unitarios backend con Jest
-- [ ] Tests frontend con Vitest
+- [x] Tests unitarios backend con Jest
+- [x] Tests frontend con Vitest
 - [ ] Prueba E2E critica (login + CRUD basico) con Playwright o Cypress
 - [ ] Incorporar cobertura minima del 70%
 
