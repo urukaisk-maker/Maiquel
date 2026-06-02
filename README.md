@@ -223,6 +223,12 @@ Controles recomendados:
 - Cambio de estado de tarea (completada/pendiente)
 - Interfaz moderna con colores actuales y diseno adaptable
 
+## Gestion del Proyecto
+
+- Roadmap de evolucion: `ROADMAP.md`
+- Integracion continua: `.github/workflows/ci.yml`
+- Plantillas de incidencias: `.github/ISSUE_TEMPLATE/`
+
 ## Nota de Responsabilidad Tecnica
 
 La arquitectura y su implementacion han sido concebidas por Urukais Klick (diseno tecnico general, frontend y backend), junto con Manuel Casimiro Carrasco (desarrollo, integracion y optimizacion), garantizando modularidad, mantenibilidad y escalabilidad del sistema.

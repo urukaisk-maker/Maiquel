@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Consultas generales del proyecto
+    url: https://github.com/urukaisk-maker/Maiquel/discussions
+    about: Usa Discussions para preguntas abiertas o soporte general.
